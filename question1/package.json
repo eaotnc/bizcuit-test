@@ -1,0 +1,16 @@
+{
+  "name": "question1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "question1.js",
+  "scripts": {
+    "dev": "nodemon index.js",
+    "test": "jest"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^27.2.2",
+    "nodemon": "^2.0.13"
+  }
+}
