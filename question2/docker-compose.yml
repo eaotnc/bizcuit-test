@@ -9,7 +9,7 @@ services:
     volumes:
       - .:/src
     environment:
-      - DATABASE_URL=mongodb://mongo/book
+      - DATABASE_URL=mongodb://mongo/beer
   mongo:
     image: mongo:latest
     ports:

@@ -1,29 +1,5 @@
-// const mongoose = require("mongoose");
-
-// const serverURI = process.env.DATABASE_URL || "mongodb://mongo/book";
-
-// class DBConnection {
-//   constructor() {
-//     this._connect();
-//   }
-//   _connect() {
-//     mongoose
-//       .connect(serverURI, { useNewUrlParser: true })
-//       .then(() => {
-//         console.log("Database connection successful");
-//       })
-//       .catch(err => {
-//         console.error("Database connection error");
-//         console.log( err);
-//       });
-//   }
-// }
-
-// module.exports = new DBConnection();
-
 const mongoose = require("mongoose");
 
-// set mongoose Promise to Bluebird
 mongoose.Promise = Promise;
 
 // Exit application on error
@@ -43,8 +19,8 @@ if (process.env === "development") {
  * @returns {object} Mongoose connection
  * @public
  */
-const serverURI = process.env.DATABASE_URL || "mongodb://localhost:27017/myapp";
-//  "mongodb://mongo/book";
+const serverURI = process.env.DATABASE_URL || "mongodb://localhost:27017/beers";
+//  "mongodb://mongo/beer";
 exports.connect = () => {
   mongoose.connect(serverURI, {
     keepAlive: 1,
