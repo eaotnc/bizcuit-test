@@ -15,6 +15,7 @@ exports.random = async (req, res, next) => {
   try {
     console.log("random");
     const beer = await Beer.random();
+    console.log("🚀 ~ exports.random= ~ beer", beer);
     res.json({ data: beer });
   } catch (error) {
     console.error(error);
