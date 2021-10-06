@@ -18,7 +18,7 @@ const getCount = async () => {
     const count = result[0].randomCount;
     randomCount.findOneAndUpdate(
       { randomCount: count },
-      { randomCount: count + 1, eao: 3 },
+      { randomCount: count + 1 },
       { upsert: true }
     );
     return count + 1;

@@ -4,7 +4,7 @@ const beerController = require("../controller/beerController");
 
 router.get("/list", beerController.listbeers);
 router.get("/random", beerController.random);
-router.post("/", beerController.addbeers);
+router.post("/", beerController.addbeer);
 router.delete("/delete", beerController.deletebeers);
 
 module.exports = router;
