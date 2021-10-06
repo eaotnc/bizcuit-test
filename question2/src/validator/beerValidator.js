@@ -1,7 +1,21 @@
 const { body, validationResult } = require("express-validator");
-module.exports.addBeer = (req, res, next) => {
+const userValidationRules = () => {
+  return [
+    body("_id").exists(),
+    body("uid").exists(),
+    body("brand").exists(),
+    body("name").exists(),
+    body("style").exists(),
+    body("hop").exists(),
+    body("yeast").exists(),
+    body("malts").exists(),
+    body("ibu").exists(),
+    body("alcohol").exists(),
+    body("blg").exists(),
+  ];
+};
+const validate = (req, res, next) => {
   const errors = validationResult(req);
-  console.log("🚀 ~ errors", errors);
   if (!errors.isEmpty()) {
     return res.status(400).json({
       status: "invalid-body",
@@ -9,4 +23,9 @@ module.exports.addBeer = (req, res, next) => {
       errors: errors.array(),
     });
   }
+};
+
+module.exports = {
+  userValidationRules,
+  validate,
 };
