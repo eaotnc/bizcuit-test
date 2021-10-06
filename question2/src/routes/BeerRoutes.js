@@ -1,10 +1,10 @@
 const express = require("express");
 const router = express.Router();
-const beerController = require("../controller/beerController");
+const BeerController = require("../controller/BeerController");
 const { userValidationRules, validate } = require("../validator/beerValidator");
 
-router.get("/list", beerController.listbeers);
-router.get("/random", beerController.random);
-router.post("/", userValidationRules(), validate, beerController.addbeer);
+router.get("/list", BeerController.listbeers);
+router.get("/random", BeerController.random);
+router.post("/", userValidationRules(), validate, BeerController.addbeer);
 
 module.exports = router;

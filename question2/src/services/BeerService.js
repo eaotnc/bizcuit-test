@@ -1,29 +1,32 @@
-const beer = require("../models/beer");
-const randomCount = require("../models/randomCount");
+const Beer = require("../models/Beer");
+const RandomCount = require("../models/RandomCount");
 
-exports.list = () => beer.find();
+exports.list = () => Beer.find();
 exports.random = async () => {
-  const beerCountNumber = await beer.countDocuments().exec();
-  var random = Math.floor(Math.random() * beerCountNumber);
-  let result = await beer.findOne().skip(random).exec();
-  const randomCount = await getCount();
-  return { ...result, randomCount: randomCount };
+  const BeerCountNumber = await Beer.countDocuments().exec();
+  var random = Math.floor(Math.random() * BeerCountNumber);
+  let result = await Beer.findOne().skip(random).exec();
+  if (result) {
+    const randomCount = await getCount();
+    return { ...result, randomCount: randomCount };
+  }
+  return null;
 };
-exports.add = (data) => new beer(data).save();
-exports.delete = (id) => beer.findByIdAndRemove(id);
+exports.add = (data) => new Beer(data).save();
+exports.delete = (id) => Beer.findByIdAndRemove(id);
 
 const getCount = async () => {
-  const result = await randomCount.find();
+  const result = await RandomCount.find();
   if (result[0] && result[0].randomCount) {
     const count = result[0].randomCount;
-    randomCount.findOneAndUpdate(
+    RandomCount.findOneAndUpdate(
       { randomCount: count },
       { randomCount: count + 1 },
       { upsert: true }
     );
     return count + 1;
   } else {
-    new randomCount({ randomCount: 1 }).save();
+    new RandomCount({ randomCount: 1 }).save();
     return 0;
   }
 };

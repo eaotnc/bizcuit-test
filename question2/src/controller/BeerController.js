@@ -1,5 +1,4 @@
-const randomCount = require("../models/randomCount");
-const Beer = require("./../services/beerService");
+const Beer = require("./../services/BeerService");
 
 exports.listbeers = async (req, res, next) => {
   try {
@@ -16,7 +15,19 @@ exports.random = async (req, res, next) => {
   try {
     console.log("random");
     const beer = await Beer.random();
-    res.json({ status: "success", code: 200, data: beerTransformers(beer) });
+    if (beer) {
+      res.json({
+        success: false,
+        message: "success",
+        data: beerTransformers(beer),
+      });
+    } else {
+      res.status(400).json({
+        success: false,
+        message: "data not found",
+        data: null,
+      });
+    }
   } catch (error) {
     console.error(error);
     next(error);
