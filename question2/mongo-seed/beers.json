@@ -1,0 +1,57 @@
+[
+  {
+    "_id": "9021",
+    "uid": "7fbab6c4-7ca3-43b7-ba39-471913b11674",
+    "brand": "Patagonia",
+    "name": "Brooklyn Black",
+    "style": "Fruit Beer",
+    "hop": "Amarillo",
+    "yeast": "1318 - London Ale III",
+    "malts": "Special roast",
+    "ibu": "44 IBU",
+    "alcohol": "3.2%",
+    "blg": "5.1°Blg",
+    "__v": 0
+  },
+  {
+    "_id": "9495",
+    "uid": "528891f5-a0d2-410c-b0f3-74bad8424f51",
+    "brand": "Tsingtao",
+    "name": "Yeti Imperial Stout",
+    "style": "Stout",
+    "hop": "Fuggle",
+    "yeast": "3333 - German Wheat",
+    "malts": "Caramel",
+    "ibu": "82 IBU",
+    "alcohol": "7.0%",
+    "blg": "11.3°Blg",
+    "__v": 0
+  },
+  {
+    "_id": "802",
+    "uid": "e491d0a0-d27e-4afc-af1b-41685c65c04e",
+    "brand": "Tsingtao",
+    "name": "Oaked Arrogant Bastard Ale",
+    "style": "Smoke-flavored",
+    "hop": "Columbus",
+    "yeast": "2035 - American Lager",
+    "malts": "Roasted barley",
+    "ibu": "21 IBU",
+    "alcohol": "3.4%",
+    "blg": "19.8°Blg",
+    "__v": 0
+  },
+  {
+    "_id": "6165",
+    "uid": "e700dbc5-d85e-4491-be4f-31b020911990",
+    "brand": "Pacifico",
+    "name": "Westmalle Trappist Tripel",
+    "style": "Porter",
+    "hop": "Newport",
+    "yeast": "2035 - American Lager",
+    "malts": "Black malt",
+    "ibu": "48 IBU",
+    "alcohol": "5.6%",
+    "blg": "5.5°Blg"
+  }
+]

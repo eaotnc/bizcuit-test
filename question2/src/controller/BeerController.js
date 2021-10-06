@@ -17,7 +17,7 @@ exports.random = async (req, res, next) => {
     const beer = await Beer.random();
     if (beer) {
       res.json({
-        success: false,
+        success: true,
         message: "success",
         data: beerTransformers(beer),
       });

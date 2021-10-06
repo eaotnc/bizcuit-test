@@ -1,20 +1,27 @@
 version: "3.3"
 services:
-  web:
-    build: .
-    ports:
-      - "9000:8080"
-    depends_on:
-      - mongo
-    volumes:
-      - .:/src
-    environment:
-      - DATABASE_URL=mongodb://mongo/beer
-  mongo:
+  mongodb:
     image: mongo:latest
     ports:
       - "27017:27017"
     volumes:
       - mongodb:/data/db
+  mongo-seed:
+    build: ./mongo-seed
+    links:
+      - mongodb
+  web:
+    build: .
+    ports:
+      - "9000:8080"
+    depends_on:
+      - mongodb
+    volumes:
+      - .:/src
+    environment:
+      - DATABASE_URL=mongodb://mongo/beers
+    links:
+      - mongodb
+
 volumes:
   mongodb:

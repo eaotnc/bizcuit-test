@@ -1,0 +1,4 @@
+FROM mongo
+
+COPY beers.json /beers.json
+CMD mongoimport --host mongodb --db beers --collection beers --type json --file /beers.json --jsonArray
