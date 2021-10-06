@@ -16,7 +16,7 @@ exports.random = async (req, res, next) => {
   try {
     console.log("random");
     const beer = await Beer.random();
-    res.json({ ...beerTransformers(beer) });
+    res.json({ status: "success", code: 200, data: beerTransformers(beer) });
   } catch (error) {
     console.error(error);
     next(error);
@@ -26,7 +26,9 @@ exports.random = async (req, res, next) => {
 exports.addbeer = async (req, res, next) => {
   try {
     console.log("addbeer");
-    const beer = await Beer.add(req.body).then((data) => res.json(data));
+    const beer = await Beer.add(req.body).then((data) =>
+      res.json({ status: "success", code: 200, data: data })
+    );
     res.json(beer);
   } catch (error) {
     console.error(error);
