@@ -1,0 +1,32 @@
+.beer-card {
+  display: block;
+  margin: auto;
+  max-width: 400px;
+  min-height: 300px;
+  border: 3px solid rgb(25, 165, 13);
+  border-radius: 10px;
+  padding: 20px;
+  text-transform: capitalize;
+}
+.beer-header {
+  font-size: 20px;
+  min-width: 50px;
+  font-weight: bold;
+  height: 40px;
+}
+.beer-row {
+  display: flex;
+  height: 40px;
+}
+.beer-info {
+  padding: 5px 10px;
+  height: 40px;
+  text-align: left;
+  text-overflow: ellipsis;
+}
+
+@media (hover: none) and (pointer: coarse) {
+  .beer-card {
+    margin: 20px;
+  }
+}
