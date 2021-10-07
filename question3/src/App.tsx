@@ -4,6 +4,7 @@ import axios from 'axios';
 import BeerCard from './BeerCard';
 import { useEffect, useState } from 'react';
 import beerIcon from './assets/beer-icon.png'
+import ToggleButton from './ToggleButton';
 
 const API_GET_RANDOM_BEER = 'http://localhost:9000/api/beer/random'
 interface BeerDetailInterface {
@@ -82,15 +83,7 @@ function App() {
       </header>
 
 
-      <section >
-        <label htmlFor="toggle-2" className="toggle-2">
-          <input type="checkbox" name="toggle-2" id="toggle-2" className="toggle-2__input" onClick={() => toggleThemeMode()} />
-          <span className="toggle-2__button">
-            <img src="https://raw.githubusercontent.com/nueymoo/toggle-switch-css/master/sun.png" alt="sun" className="toggle-2__button--icon" />
-            <img src="https://raw.githubusercontent.com/nueymoo/toggle-switch-css/master/moon.png" alt="moon" className="toggle-2__button--icon" />
-          </span>
-        </label>
-      </section>
+      <ToggleButton toggle={toggleThemeMode} />
 
       {errorMessage &&
         <header className="App-header">
@@ -105,13 +98,13 @@ function App() {
       {/* INFO: display beerDetail */}
 
       {beers.length > 1 && currentDisplay !== 0 &&
-        <button onClick={() => setCurrentDisplay(currentDisplay - 1)}>
+        <button className={appTheme} onClick={() => setCurrentDisplay(currentDisplay - 1)}>
           Back
         </button>
       }
       {/* INFO: display back button only if have beer and currentDisplay not 0 */}
 
-      <button onClick={() => getNextRandomBeer()}>Next</button>
+      <button className={appTheme} onClick={() => getNextRandomBeer()}>Next</button>
 
     </div>
   );
