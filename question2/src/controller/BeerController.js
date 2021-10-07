@@ -1,4 +1,5 @@
 const Beer = require("./../services/BeerService");
+const BeerModel = require("./../models/Beer");
 
 exports.listbeers = async (req, res, next) => {
   try {
@@ -22,7 +23,7 @@ exports.random = async (req, res, next) => {
         data: beerTransformers(beer),
       });
     } else {
-      res.status(400).json({
+      res.status(404).json({
         success: false,
         message: "data not found",
         data: null,
@@ -37,6 +38,14 @@ exports.random = async (req, res, next) => {
 exports.addbeer = async (req, res, next) => {
   try {
     console.log("addbeer");
+    const duplicateIdBeer = await BeerModel.findOne({ _id: req.body._id });
+    if (duplicateIdBeer) {
+      res.status(400).json({
+        success: false,
+        message: "duplicate id",
+        data: null,
+      });
+    }
     const beer = await Beer.add(req.body).then((data) =>
       res.json({ status: "success", code: 200, data: data })
     );

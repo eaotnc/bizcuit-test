@@ -12,7 +12,9 @@ exports.random = async () => {
   }
   return null;
 };
+
 exports.add = (data) => new Beer(data).save();
+
 exports.delete = (id) => Beer.findByIdAndRemove(id);
 
 const getCount = async () => {

@@ -20,6 +20,8 @@ services:
     build: ./mongo-seed
     depends_on:
       - web
+    volumes:
+      - mongodb:/data/db
     links:
       - mongo
 
