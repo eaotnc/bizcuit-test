@@ -13,11 +13,12 @@ interface BeerDetailInterface {
     blg: string;
     randomCount: number;
 }
-
+// INFO: display beer detail by each field 
 const BeerCard = (props: {
     beerDetail: BeerDetailInterface
 }):
     React.ReactElement => {
+
     return (
         <div className="beer-card">
             <div>
