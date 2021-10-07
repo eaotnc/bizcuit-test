@@ -21,10 +21,11 @@ const getCount = async () => {
   const result = await RandomCount.find();
   if (result[0] && result[0].randomCount) {
     const count = result[0].randomCount;
-    RandomCount.findOneAndUpdate(
-      { randomCount: count },
+    RandomCount.updateOne(
+      { _id: result[0]._id },
       { randomCount: count + 1 },
-      { upsert: true }
+      { upsert: true },
+      () => {}
     );
     return count + 1;
   } else {

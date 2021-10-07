@@ -18,12 +18,9 @@ services:
       - DATABASE_URL=mongodb://mongo/beers
   mongo-seed:
     build: ./mongo-seed
-    depends_on:
-      - web
     volumes:
       - mongodb:/data/db
     links:
       - mongo
-
 volumes:
   mongodb:
