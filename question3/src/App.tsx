@@ -67,8 +67,6 @@ function App() {
     }
   }
   const toggleThemeMode = () => {
-    console.log("🚀 ~ toggleThemeMode ~ appTheme", appTheme)
-
     if (appTheme === 'dark-mode') {
       setAppTheme('light-mode')
     } else {
@@ -81,7 +79,6 @@ function App() {
       <header className="App-header">
         Random Beers
       </header>
-
 
       <ToggleButton toggle={toggleThemeMode} />
 
