@@ -3,11 +3,11 @@ this is inverview testing repo includeing 3 question and i make all bonus point
 
  ## 1. question1 simple sum question
    ### install
-    -npm run install
+    - ~/question1> npm run install
    ### run 
     - npm run dev 
    ### and you can adding param as 
-    - npm run dev 100 123
+    - ~/question1> npm run dev 100 123
    ### test
     - npm run test
 ## 2. question2 nodejs backend beer-api this can run with docker and perfectly run with mongodb and seed data
@@ -19,6 +19,6 @@ this is inverview testing repo includeing 3 question and i make all bonus point
   
 ## 3. question3 reactTs frontend test display beer this question i make all bonus point 
  ### install
- - npm run install
+ - ~/question3> npm run install
   ## run
- - npm run start
+ - ~/question3> npm run start
