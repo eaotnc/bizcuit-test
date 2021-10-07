@@ -1,7 +1,8 @@
-import logo from './logo.svg';
+
 import './App.css';
+import axios from 'axios';
 import BeerCard from './BeerCard';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 interface BeerDetailInterface {
   _id: string;
   uid: string;
@@ -18,37 +19,34 @@ interface BeerDetailInterface {
 }
 
 function App() {
-  const [beers, setbeers] = useState<Array<BeerDetailInterface>>([{
-    _id: "802",
-    uid: "e491d0a0-d27e-4afc-af1b-41685c65c04e",
-    brand: "Tsingtao",
-    name: "Oaked Arrogant Bastard Ale",
-    style: "Smoke-flavored",
-    hop: "Columbus",
-    yeast: "2035 - American Lager",
-    malts: "Roasted barley",
-    ibu: "21 IBU",
-    alcohol: "3.4%",
-    blg: "19.8°Blg",
-    randomCount: 3,
+  const [beers, setbeers] = useState<Array<BeerDetailInterface>>([]);
+  const [currentDisplay, setCurrentDisplay] = useState<number>(0);
+  const [loading, setloading] = useState<number>(0);
+  useEffect((): any => {
+    getRandomBeer()
+  }, []);
+
+  const getRandomBeer = async () => {
+    const result: any = await axios.get('http://localhost:9000/api/beer/random')
+    setbeers([result.data.data])
   }
-  ]);
-
-  const renderBeer = () => {
-    return beers.map((beer, index) => {
-      return <BeerCard beerDetail={beer} />
-    })
-
+  const getNextRandomBeer = async () => {
+    const result: any = await axios.get('http://localhost:9000/api/beer/random')
+    await setbeers([...beers, result.data.data])
+    await setCurrentDisplay(currentDisplay + 1)
   }
   return (
     <div className="App">
       <header className="App-header">
         Random Beers
       </header>
-      {
-        renderBeer()
+      {beers.length > 0 && <BeerCard beerDetail={beers[currentDisplay]} />}
+      {beers.length > 1 &&
+        <button onClick={() => setCurrentDisplay(currentDisplay !== 0 ? currentDisplay - 1 : 0)}>
+          Back
+        </button>
       }
-
+      <button onClick={() => getNextRandomBeer()}>Next</button>
     </div>
   );
 }
