@@ -14,8 +14,8 @@ this is inverview testing repo includeing 3 question and i make all bonus point
   ### run 
   - ~/question2> docker-compose up 
   ### url
-  -(get) http://localhost:9000/api/beer/random \
-  -(post) http://localhost:9000/api/beer \
+  - (get) http://localhost:9000/api/beer/random \
+  - (post) http://localhost:9000/api/beer 
   
 ## 3. question3 reactTs frontend test display beer this question i make all bonus point 
  ### install
