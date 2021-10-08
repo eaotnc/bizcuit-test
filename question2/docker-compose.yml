@@ -12,14 +12,10 @@ services:
       - "9000:8080"
     depends_on:
       - mongo
-    volumes:
-      - .:/src
     environment:
-      - DATABASE_URL=mongodb://mongo/beers
+      - DATABASE_URL=mongodb://mongo/beerDB
   mongo-seed:
     build: ./mongo-seed
-    volumes:
-      - mongodb:/data/db
     links:
       - mongo
 volumes:
