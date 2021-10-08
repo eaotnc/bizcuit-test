@@ -19,7 +19,7 @@ if (process.env === "development") {
  * @returns {object} Mongoose connection
  * @public
  */
-const serverURI = process.env.DATABASE_URL || "mongodb://localhost:27017/beers";
+const serverURI = process.env.DATABASE_URL || "mongodb://localhost:27018/beers";
 //  "mongodb://mongo/beer";
 exports.connect = () => {
   mongoose.connect(serverURI, {
