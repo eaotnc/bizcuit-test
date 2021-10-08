@@ -1,5 +1,5 @@
 const Beer = require("../models/Beer");
-const RandomCount = require("../models/RandomCount");
+const RandomCount = require("../models/Count");
 
 exports.list = () => Beer.find();
 exports.random = async () => {
@@ -30,6 +30,6 @@ const getCount = async () => {
     return count + 1;
   } else {
     new RandomCount({ randomCount: 1 }).save();
-    return 0;
+    return 1;
   }
 };
